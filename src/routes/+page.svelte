@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Paragraph from "$lib/Paragraph.svelte";
+    import Paragraph from "$lib/Paragraph.svelte";
     import Title from "$lib/Title.svelte";
 </script>
 
