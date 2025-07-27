@@ -1,12 +1,10 @@
 import adapter from '@sveltejs/adapter-netlify';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-/** @type {import('@sveltejs/kit').Config} */
 export default {
-	kit: {
-		// for more information about preprocessors
-		preprocess: vitePreprocess(),
+	preprocess: vitePreprocess(),
 
+	kit: {
 		// default options are shown
 		adapter: adapter({
 			// if true, will create a Netlify Edge Function rather
