@@ -1,10 +1,9 @@
-/// Retrieve all albums and return their name
+import type { PageServerLoad } from './$types';
 import * as fs from 'fs';
 import * as path from 'path';
-import { error } from '@sveltejs/kit';
 
-export const GET: any = () => {
-    const albumDirectory = path.resolve("./static/albums"); // Path where albums are located
+export const load: PageServerLoad = async () => {
+	const albumDirectory = path.resolve("./static/albums"); // Path where albums are located
     let albums = new Map<string, string[]>();
     try {
         const d = fs.readdirSync(albumDirectory, { withFileTypes: true }); // Read albums directory
@@ -20,15 +19,7 @@ export const GET: any = () => {
         }
     }
     catch (e) {
-        error(500, String(e));
+        console.log(String(e));
     }
-
-    // Convert an object instead of the map, otherwise it returns {}
-    const albumsObject = Object.fromEntries(albums);
-    
-    return new Response(JSON.stringify(albumsObject), {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    return { albums };
 };
