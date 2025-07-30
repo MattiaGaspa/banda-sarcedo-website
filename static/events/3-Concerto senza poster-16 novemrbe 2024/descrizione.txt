@@ -1,0 +1,2 @@
+Questo concerto <b>non ha poster</b>
+<em>Bello il testo in italico</em>
